@@ -8,10 +8,10 @@ MainForm::MainForm() : wxFrame(nullptr, wxID_ANY, "Hamster Launcher Pre-Alpha 0.
 {
 	muttiPanel = new wxPanel(this);
 	topBar = new wxPanel(muttiPanel, wxID_ANY, wxPoint(0, 0), wxSize(1280, 50), wxTAB_TRAVERSAL, "KEK");
-	topBar->SetBackgroundColour(wxColour(170,0,0));
-	button1 = new wxButton(topBar, wxID_ANY, "SPIELE" , wxPoint(0, 0), wxSize(200, 100));
-	button2 = new wxButton(topBar, wxID_ANY, "WALLPAPER" , wxPoint(200, 0), wxSize(200, 100));
-	button3 = new wxButton(topBar, wxID_ANY, "Setup", wxPoint(400, 0), wxSize(100, 100));
+	topBar->SetBackgroundColour(wxColour(170,170,170));
+	button1 = new wxButton(topBar, wxID_ANY, "SPIELE" , wxPoint(0, 0), wxSize(100, 50));
+	button2 = new wxButton(topBar, wxID_ANY, "WALLPAPER" , wxPoint(100, 0), wxSize(100, 50));
+	button3 = new wxButton(topBar, wxID_ANY, "Setup", wxPoint(200, 0), wxSize(50, 50));
 }
 
 MainForm::~MainForm()
