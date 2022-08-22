@@ -26,5 +26,15 @@ namespace Launcher
         {
 
         }
+
+        private void SPIELEN_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
     }
 }
