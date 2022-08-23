@@ -80,6 +80,7 @@ MSG1:
 	"auth_token" : "TOKEN",
 	"data" : {
 		"nickname" : "NICKNAME",
+		"online_status" : "online/afk/do_not_disturb/invisible",
 		"status_msg" : "TEXT",
 		"description" : "TEXT",
 		"pfp" : { PICTURE }
@@ -136,6 +137,23 @@ RESULT_SUCCESS:
 
 /download/game/{id} | GET
 -> downloads specified game
+
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"data" : {
+		"player" : {
+			"username" : "USERNAME",
+			"status_msg" : "TEXT",
+			"online_status" : "online/afk/do_not_disturb/invisible",
+			"pfp" : "PATH"		//serverpath to pfp
+			"uuid" : "UUID"
+		}
+	}
+}
+------------------------------------------------------------------------------
+
+
 
 /player/all | GET
 -> returns list of all players logged into the launcher

@@ -1,0 +1,8 @@
+D:\Dokumente\dev\HamsterLauncher\bin\Launcher\any_cpu\Debug\Launcher.exe.config
+D:\Dokumente\dev\HamsterLauncher\bin\Launcher\any_cpu\Debug\Launcher.exe
+D:\Dokumente\dev\HamsterLauncher\bin\Launcher\any_cpu\Debug\Launcher.pdb
+D:\Dokumente\dev\HamsterLauncher\Launcher\obj\Debug\Launcher.Properties.Resources.resources
+D:\Dokumente\dev\HamsterLauncher\Launcher\obj\Debug\Launcher.csproj.GenerateResource.cache
+D:\Dokumente\dev\HamsterLauncher\Launcher\obj\Debug\Launcher.csproj.CoreCompileInputs.cache
+D:\Dokumente\dev\HamsterLauncher\Launcher\obj\Debug\Launcher.exe
+D:\Dokumente\dev\HamsterLauncher\Launcher\obj\Debug\Launcher.pdb
