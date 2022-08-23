@@ -123,6 +123,17 @@ RESULT_SUCCESS:
 /game/{id} | GET
 -> returns info for game <id>
 
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"data" : {
+		...
+	}
+}
+--------------------------------------------------------------------------
+
+
+
 /download/game/{id} | GET
 -> downloads specified game
 
