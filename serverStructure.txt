@@ -1,0 +1,173 @@
+/login | POST
+-> returns uuid (user id) and session token
+
+MSG1:
+{
+	"protocol_version" : "0.0.1",
+	"type" : "request",
+	"data" : {
+		"username" : "NAME",
+		"password" : "PASSWORD"
+	}
+}
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"type" : "accepted",
+	"data" : {
+		"auth_token" : "TOKEN",		//to identify the pc loged in with this account
+		"uuid" : "UUID"		//your uuid
+	}
+}
+RESULT_REJECTED:
+{
+	"protocol_version" : "0.0.1",
+	"type" : "rejected",
+	"data" : {
+		"error" : "ERROR_CODE"
+	}
+}
+-----------------------------------------------------------
+
+
+
+/getuuid | POST
+-> send token to get your uuid
+
+MSG1:
+{
+	"protocol_version" : "0.0.1",
+	"auth_token" : "TOKEN"
+}
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"uuid" : "UUID"
+}
+RESULT_REJECTED:
+{
+	"protocol_version" : "0.0.1",
+	"error" : "ERROR_CODE"
+}
+-------------------------------------------------------------
+
+
+
+/getuuid/{username} | GET
+-> returns uuid of the given user
+
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"uuid" : "UUID"
+}
+RESULT_REJECTED:
+{
+	"protocol_version" : "0.0.1",
+	"error" : "ERROR_CODE"
+}
+---------------------------------------------------------------
+
+
+
+/setstats | POST
+-> sends uuid and status to change
+-> returns if it was successful
+
+MSG1:
+{
+	"protocol_version" : "0.0.1",
+	"auth_token" : "TOKEN",
+	"data" : {
+		"nickname" : "NICKNAME",
+		"status_msg" : "TEXT",
+		"description" : "TEXT",
+		"pfp" : { PICTURE }
+	}
+
+}
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"error" : "-1"	//success
+}
+RESULT_REJECTED:
+{
+	"protocol_version" : "0.0.1",
+	"error" : "ERROR_CODE"
+}
+-----------------------------------------------------------------
+
+
+
+/gameslist | GET
+/gameslist?filter_os="OS" | GET
+/gameslist?filter_multiplayer="none/local/online/local_coop/local_pvp/online_coop/online_pvp" | GET
+-> returns list of games
+
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"filter" : {	//applied filters
+		"multiplayer" : "none/local/online/local_coop/local_pvp/online_coop/online_pvp",	//or empty for no filter
+		"os" : "OS"
+	},
+	"data" : {
+		"game" : "GAME_ID",
+		"game" : "GAME_ID",
+		"game" : "GAME_ID",
+		...
+	}
+}
+
+/game/{id} | GET
+-> returns info for game <id>
+
+/download/game/{id} | GET
+-> downloads specified game
+
+/player/all | GET
+-> returns list of all players logged into the launcher
+
+/player/{uuid}/stats | GET
+-> returns player stats (online status [online, afk, do not disturb, invisible], username, pfp, ...)
+
+/player/{uuid}/profile | GET
+-> returns a detailed player profile
+
+##game chat
+
+/chat/game/{id}/info | GET
+-> returns info about the active chat sector
+
+/chat/game/{id}/{sector} | GET
+-> returns the by <sector> specified sector
+
+/chat/post/game/{id} | POST
+-> sends message to be appendet to chat (passing uuid is required)
+
+/chat/request_edit/game/{id} | POST
+-> sends player uuid and message id to request a edit
+-> returns edit token
+
+/chat/edit/post/game/{id} | POST
+-> sends the new message content by also passing the edit token
+
+
+##private chat
+
+/chat/private/{my_uuid}/{other_uuid}/info | GET
+-> returns info about the active chat sector
+
+/chat/private/{my_uuid}/{other_uuid}/{sector} | GET
+-> returns the by <sector> specified sector
+
+/chat/post/private/{my_uuid}/{other_uuid} | POST
+-> sends message to be appendet to chat (passing uuid is required)
+
+/chat/request_edit/private/{my_uuid}/{other_uuid} | POST
+-> sends player uuid and message id to request a edit
+-> returns edit token
+
+/chat/edit/post/private/{my_uuid}/{other_uuid} | POST
+-> sends the new message content by also passing the edit token
