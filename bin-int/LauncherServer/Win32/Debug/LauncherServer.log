@@ -1,0 +1,6 @@
+﻿E:\visual studio 2019\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1967,5): warning : The referenced project 'D:\Dokumente\dev\HamsterLauncher\LauncherServer\ZERO_CHECK.proj' does not exist.
+  Building Custom Rule D:/Dokumente/dev/HamsterLauncher/LauncherServer/CMakeLists.txt
+  CMake is re-running because D:/Dokumente/dev/HamsterLauncher/LauncherServer/CMakeFiles/generate.stamp dependency file is missing.
+CUSTOMBUILD : CMake error : The source directory "D:/Dokumente/dev/HamsterLauncher/LauncherServer" does not appear to contain CMakeLists.txt.
+  Specify --help for usage, or press the help button on the CMake GUI.
+E:\visual studio 2019\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(241,5): error MSB8066: Der benutzerdefinierte Build für "D:\Dokumente\dev\HamsterLauncher\LauncherServer\CMakeLists.txt" wurde mit dem Code 1 beendet.

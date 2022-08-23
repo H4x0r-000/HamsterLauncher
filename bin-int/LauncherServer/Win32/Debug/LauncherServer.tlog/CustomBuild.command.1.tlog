@@ -1,0 +1,10 @@
+^D:\DOKUMENTE\DEV\HAMSTERLAUNCHER\LAUNCHERSERVER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Dokumente/dev/HamsterLauncher/LauncherServer -BD:/Dokumente/dev/HamsterLauncher/LauncherServer --check-stamp-file D:/Dokumente/dev/HamsterLauncher/LauncherServer/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
