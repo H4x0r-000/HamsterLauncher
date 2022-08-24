@@ -23,9 +23,7 @@ RESULT_REJECTED:
 {
 	"protocol_version" : "0.0.1",
 	"type" : "rejected",
-	"data" : {
-		"error" : "ERROR_CODE"
-	}
+	"error" : "ERROR_CODE"
 }
 -----------------------------------------------------------
 
@@ -113,12 +111,12 @@ RESULT_SUCCESS:
 		"multiplayer" : "none/local/online/local_coop/local_pvp/online_coop/online_pvp",	//or empty for no filter
 		"os" : "OS"
 	},
-	"data" : {
-		"game" : "GAME_ID",
-		"game" : "GAME_ID",
-		"game" : "GAME_ID",
+	"data" : [
+		"GAME_ID",
+		"GAME_ID",
+		"GAME_ID",
 		...
-	}
+	]
 }
 
 /game/{id} | GET
@@ -143,15 +141,23 @@ RESULT_SUCCESS:
 RESULT_SUCCESS:
 {
 	"protocol_version" : "0.0.1",
-	"data" : {
-		"player" : {
+	"data" : [
+		{
 			"username" : "USERNAME",
 			"status_msg" : "TEXT",
 			"online_status" : "online/afk/do_not_disturb/invisible",
 			"pfp" : "PATH",		//serverpath to pfp
 			"uuid" : "UUID"
-		}
-	}
+		},
+		{
+			"username" : "USERNAME",
+			"status_msg" : "TEXT",
+			"online_status" : "online/afk/do_not_disturb/invisible",
+			"pfp" : "PATH",		//serverpath to pfp
+			"uuid" : "UUID"
+		},
+		...
+	]
 }
 ------------------------------------------------------------------------------
 
