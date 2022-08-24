@@ -19,6 +19,19 @@ public:
         //ADD_METHOD_TO(HamsterController::toggleFilter, "/toggle_filter", Get);
         //ADD_METHOD_TO(HamsterController::filterLogic, "/filter", "TestFilter", Get);
         ADD_METHOD_TO(HamsterController::test, "/test", Get);
+
+        ADD_METHOD_TO(HamsterController::UserLogin, "/login", Post);
+        ADD_METHOD_TO(HamsterController::UserGetUUID, "/getuuid", Post);
+
+        ADD_METHOD_TO(HamsterController::GetUUIDfromPlayerUsername, "/getuuid/{username}", Get);
+        ADD_METHOD_TO(HamsterController::UserSetStats, "/setstatus", Post);
+
+        ADD_METHOD_TO(HamsterController::GetGamesList, "/gameslist?filter_os={os}&filter_multiplayer={mp}", Get);
+        ADD_METHOD_TO(HamsterController::GetGameInfo, "/game/{id}", Get);
+
+        ADD_METHOD_TO(HamsterController::GetAllPlayers, "/player/all", Get);
+        ADD_METHOD_TO(HamsterController::GetPlayerStats, "/player/{uuid}/stats", Get);
+        ADD_METHOD_TO(HamsterController::GetPlayerProfile, "/player/{uuid}/profile", Get);
     METHOD_LIST_END
         // your declaration of processing function maybe like this:
         // void get(const HttpRequestPtr& req, std::function<void (const HttpResponsePtr &)> &&callback, int p1, std::string p2);
@@ -29,8 +42,41 @@ public:
     void test(const HttpRequestPtr& req,
         std::function<void(const HttpResponsePtr&)>&& callback);
 
+
+
     void UserLogin(const HttpRequestPtr& req,
         std::function<void(const HttpResponsePtr&)>&& callback);
+
+    void UserGetUUID(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback);
+
+
+    
+    void GetUUIDfromPlayerUsername(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback, std::string &&username);
+    
+    void UserSetStats(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback);
+
+
+
+    void GetGamesList(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback, std::string &&os_filter, std::string &&mp_filter);
+
+    void GetGameInfo(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback, std::string &&gameId);
+
+
+
+    void GetAllPlayers(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback);
+
+    void GetPlayerStats(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback, std::string &&uuid);
+
+    void GetPlayerProfile(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback, std::string &&uuid);
+
 
     /*void test(const HttpRequestPtr& req,
         std::function<void(const HttpResponsePtr&)>&& callback,

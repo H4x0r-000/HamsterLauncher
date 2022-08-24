@@ -135,8 +135,10 @@ RESULT_SUCCESS:
 
 
 
-/download/game/{id} | GET
--> downloads specified game
+
+
+/player/all | GET
+-> returns list of all players logged into the launcher
 
 RESULT_SUCCESS:
 {
@@ -146,7 +148,7 @@ RESULT_SUCCESS:
 			"username" : "USERNAME",
 			"status_msg" : "TEXT",
 			"online_status" : "online/afk/do_not_disturb/invisible",
-			"pfp" : "PATH"		//serverpath to pfp
+			"pfp" : "PATH",		//serverpath to pfp
 			"uuid" : "UUID"
 		}
 	}
@@ -155,14 +157,39 @@ RESULT_SUCCESS:
 
 
 
-/player/all | GET
--> returns list of all players logged into the launcher
-
 /player/{uuid}/stats | GET
 -> returns player stats (online status [online, afk, do not disturb, invisible], username, pfp, ...)
 
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"data" : {
+		"username" : "USERNAME",
+		"status_msg" : "TEXT",
+		"online_status" : "online/afk/do_not_disturb/invisible",
+		"pfp" : "PATH",		//serverpath to pfp
+		"uuid" : "UUID"
+	}
+}
+---------------------------------------------------------------------------------------
+
+
+
 /player/{uuid}/profile | GET
 -> returns a detailed player profile
+
+RESULT_SUCCESS:
+{
+	"protocol_version" : "0.0.1",
+	"data" : {
+		...
+	}
+}
+RESULT_REJECTED:
+{
+	"protocol_version" : "0.0.1",
+	"error" : "ERROR_CODE"	//if player has profile set to private as example
+}
 
 ##game chat
 
@@ -200,3 +227,12 @@ RESULT_SUCCESS:
 
 /chat/edit/post/private/{my_uuid}/{other_uuid} | POST
 -> sends the new message content by also passing the edit token
+
+
+##resources
+
+/download/game/{id} | GET
+-> downloads specified game
+
+/download/pfp/{res_id} |GET
+-> downloads the specified pfp picture file
