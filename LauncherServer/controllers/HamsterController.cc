@@ -24,6 +24,15 @@ void HamsterController::test(const HttpRequestPtr& req, std::function<void(const
 	callback(resp);
 }
 
+void HamsterController::postTest(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback)
+{
+	HttpResponsePtr resp = HttpResponse::newHttpResponse();
+	std::stringstream ss;
+	ss << req->getBody();
+	resp->setBody(ss.str());
+	callback(resp);
+}
+
 void HamsterController::UserLogin(const HttpRequestPtr& req, std::function<void(const HttpResponsePtr&)>&& callback)
 {
 	/*std::shared_ptr<Json::Value> jval = req->jsonObject();

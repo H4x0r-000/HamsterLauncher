@@ -19,6 +19,7 @@ public:
         //ADD_METHOD_TO(HamsterController::toggleFilter, "/toggle_filter", Get);
         //ADD_METHOD_TO(HamsterController::filterLogic, "/filter", "TestFilter", Get);
         ADD_METHOD_TO(HamsterController::test, "/test", Get);
+        ADD_METHOD_TO(HamsterController::postTest, "/posttest", Post);
 
         ADD_METHOD_TO(HamsterController::UserLogin, "/login", Post);
         ADD_METHOD_TO(HamsterController::UserGetUUID, "/getuuid", Post);
@@ -40,6 +41,8 @@ public:
 
 
     void test(const HttpRequestPtr& req,
+        std::function<void(const HttpResponsePtr&)>&& callback);
+    void postTest(const HttpRequestPtr& req,
         std::function<void(const HttpResponsePtr&)>&& callback);
 
 
